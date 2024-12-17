@@ -1,0 +1,51 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= form_with model: @skill_roll, class: "skill-roll" do |f| %>
+    <%= f.hidden_field :character_id %>
+    <%= f.hidden_field :skill %>
+
+    <legend class="heading">
+      <h2><%= SkillRoll.model_name.human %></h2>
+      <p><%= SkillSet.human_attribute_name(@skill_roll.skill) %></p>
+    </legend>
+
+    <div class="dice-picker base-dice">
+      <fieldset>
+        <legend><span>Base</span></legend>
+        <% 0.upto(6) do |n| %>
+          <%= tag.label class: "die" do %>
+            <%= tag.span n %>
+            <%= f.radio_button :base_dice, n %>
+          <% end %>
+        <% end %>
+      </fieldset>
+    </div>
+
+    <div class="dice-picker skill-dice">
+      <fieldset>
+        <legend><span>Skill</span></legend>
+        <% 0.upto(8) do |n| %>
+          <%= tag.label class: class_names("die", { bonus: (n > 5) }) do %>
+            <%= tag.span n %>
+            <%= f.radio_button :skill_dice, n %>
+          <% end %>
+        <% end %>
+      </fieldset>
+    </div>
+
+    <div class="dice-picker skill-dice">
+      <fieldset class="dice-picker gear-dice">
+      <legend><span>Gear</span></legend>
+      <% 0.upto(3) do |n| %>
+        <%= tag.label class: class_names("die", { bonus: (n > 2) }) do %>
+          <%= tag.span n %>
+          <%= f.radio_button :gear_dice, n %>
+        <% end %>
+      <% end %>
+    </fieldset>
+    </div>
+
+    <fieldset class="controls">
+      <%= f.submit %>
+    </fieldset>
+  <% end %>
+<% end %>

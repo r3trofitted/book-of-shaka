@@ -1,0 +1,713 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+@font-face {
+  font-family: "IM Fell Great Primer";
+  font-weight: normal;
+  font-style: normal;
+  src: url("FeGPrm27C-webfont.woff") format("woff");
+}
+
+:root {
+  /* Type scales from type-scale.com */
+  --fs-900: 2.027rem;
+  --fs-800: 1.802rem;
+  --fs-700: 1.602rem;
+  --fs-600: 1.424rem;
+  --fs-500: 1.266rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: 0.889rem;
+  --fs-100: 0.790rem;
+
+  --ff-title: "IM Fell Great Primer", Georgia, serif;
+  --ff-body:  "IM Fell Great Primer", Georgia, serif;
+  --ff-aside: "IM Fell Great Primer", Georgia, serif;
+
+  --clr-white: #ffffff;
+  --clr-red: #9d1920;
+  --clr-black: #141414;
+  --clr-grey-400: #656f6d;
+  --clr-grey-200: #dce0df;
+}
+
+/** Reset **/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favor of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-400);
+
+  line-height: 1.5;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+turbo-frame { display: contents; }
+
+h1 { font-size: var(--fs-900); }
+h2 { font-size: var(--fs-800); }
+h3 { font-size: var(--fs-700); }
+h4 { font-size: var(--fs-600); }
+h5 { font-size: var(--fs-500); }
+h6 { font-size: var(--fs-400); }
+
+*::focus:focus-visible {
+  outline-color: 2px solid var(--clr-red);
+}
+
+/** Utility classes **/
+
+.sr-only {
+  &:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+.parchment-bordered {
+  border: 2px solid transparent;
+  border-image: url("box-border-large.webp") 110/11 repeat;
+  border-image-outset: 12px;
+  /* padding: 2px; */
+}
+
+.optional:empty {
+  &::after {
+    content: '•'
+  }
+}
+
+.na:empty {
+  &::after {
+    content: "–";
+  }
+}
+
+/** Base **/
+
+body {
+  position: relative;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-title);
+  font-variant: small-caps;
+  margin-block: .25em;
+  text-wrap: balance;
+}
+
+fieldset.track {
+  --radius: 50%;
+  --color: currentcolor;
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: .25rem;
+
+  font-size: var(--font-size, var(--fs-400));
+
+  /* thank to Stephanie */
+  > input {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: var(--color);
+    width: 1em;
+    height: 1em;
+    border: 0.125em solid currentcolor;
+    border-radius: var(--radius, 50%);
+
+    display: grid;
+    place-content: center;
+
+    &:disabled {
+      --color: var(--clr-grey-200);
+    }
+
+    &::before {
+      content: "";
+      width: 0.55em;
+      height: 0.55em;
+      border-radius: var(--radius, 50%);
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em var(--color);
+      background-color: CanvasText;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+
+  &.square { --radius: 15%; }
+}
+
+dd:has(.track) {
+  align-self: center;
+}
+
+/* TODO: clean up this heading-like style copy-pasted from the reset */
+.inline > dt,
+legend,
+thead th {
+  font-family: var(--ff-title);
+  font-variant: small-caps;
+  margin-block: .25em;
+  text-wrap: balance;
+}
+
+.heading {
+  font-family: var(--ff-title);
+  font-variant: small-caps;
+  margin-block: .25em;
+  text-wrap: balance;
+}
+
+/** Characters list **/
+#characters-list {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-content: center;
+  gap: calc(1em + 12px);
+}
+
+.character-short {
+  color: var(--clr-black);
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  img {
+    border: 1px solid var(--clr-grey-400);
+    border-radius: 50%;
+  }
+
+  blockquote {
+    font-style: italic;
+    text-wrap: balance;
+  }
+}
+
+
+/** Character sheet **/
+
+body:has(.character-sheet) {
+  background: url(wallpaper.jpg); /* add an alpha gradient? */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+article.character-sheet {
+  anchor-name: --character-sheet;
+
+  padding: 0.5rem 1.5rem 2rem;
+
+  border: 2px solid transparent;
+  border-image: url("box-border-large.webp") 110/11 repeat;
+  border-image-outset: 3px;
+
+  background: white;
+  filter: drop-shadow(6px 6px 18px rgba(0,0,0,0.5));
+
+  display: grid;
+  grid-template-areas:
+    "name name name"
+    "background background portrait"
+    "conditions conditions injuries"
+    "willpower willpower willpower"
+    "strength wits talents"
+    "agility empathy talents"
+    "consumables consumables gear"
+    "equipment equipment equipment"
+    "encumbrance encumbrance coins";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    border-bottom: 1px solid black;
+  }
+
+  tr:nth-of-type(2) {
+    background-color: var(--clr-grey-200);
+  }
+
+  td, th {
+    text-align: center;
+    padding: .15em .25em;
+
+    font-weight: normal;
+    white-space: nowrap;
+
+    &:first-of-type {
+      width: 30%;
+      text-align: start;
+    }
+  }
+}
+
+dl.inline {
+  display: grid;
+  grid-auto-columns: 1fr;
+  justify-items: center;
+
+  dt { grid-row: 1; }
+  dd { grid-row: 2; }
+}
+
+dl.tracker {
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
+  column-gap: 1em;
+  place-items: center start;
+
+  dt {
+    font-variant: small-caps;
+    align-self: start;
+    font-weight: 700;
+    font-size: var(--fs-700);
+  }
+}
+
+dl.illustrated {
+  dt {
+    position: relative;
+
+    &::before {
+      grid-area: illustration;
+
+      content: var(--icon);
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: top left;
+      scale: .225;                  /* roughly 50x53, from the original size of 220x235 */
+      transform: translateX(-110%); /* shift to the left, plus an extra margin */
+    }
+
+    &:has(+ dd.active) {
+      &::before { filter: drop-shadow(0 0 1rem color(display-p3 0.135 0.134 0.125)); }
+    }
+  }
+}
+
+#name {
+  grid-area: name;
+  text-align: center;
+}
+
+#background {
+  grid-area: background;
+
+  dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1em;
+  }
+
+  dt {
+    margin-left: 1ch;
+    font-variant: small-caps;
+  }
+
+  dd.long-text {
+    min-height: 2lh;
+  }
+}
+
+#portrait {
+  grid-area: portrait;
+  display: grid;
+  place-items: center;
+  border-style: solid;
+  border-image: url("box-border-top-bottom.webp") 60 0 round;
+  border-image-width: 20px 0;
+  border-image-outset: 15px 0;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+#conditions {
+  grid-area: conditions;
+
+  dt.sleepless { --icon: url("sleepless.webp") }
+  dt.thirsty   { --icon: url("thirsty.webp") }
+  dt.hungry    { --icon: url("hungry.webp") }
+  dt.cold      { --icon: url("cold.webp") }
+}
+
+#injuries {
+  grid-area: injuries;
+
+  h2 {
+    font-variant: small-caps;
+    align-self: start;
+    font-weight: 400;
+    font-size: var(--fs-400);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  & ul:not(:empty) {
+    position: relative;
+
+    &::after {
+      content: url("injuries.webp"); /* TODO: change the image depending on the severity/quantities of injuries */
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform-origin: bottom right;
+      scale: .225;
+    }
+  }
+}
+
+#willpower {
+  grid-area: willpower;
+  justify-content: center;
+}
+
+section.main-section {
+  &:after {
+    content: '';
+    display: block;
+    height: 1lh;
+    background: url("endstop.webp") center/contain no-repeat;
+  }
+}
+
+dl.levels {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 3ch;
+
+  dt {
+    grid-column: 1;
+    margin-left: 1ch;
+    text-align: left;
+    font-variant: small-caps;
+  }
+
+  dd {
+    font-size: var(--fs-500);
+    text-align: end;
+  }
+}
+
+#attributes-and-skills {
+  display: grid;
+  grid-template-columns: 1fr 3ch max-content;
+  grid-auto-flow: row;
+  grid-area: attributes;
+}
+
+.attribute-with-skills {
+  display: grid;
+  grid-template-areas:
+    "base base name current"
+    ". skills skills skills";
+  grid-template-columns: 3ch 3ch 1fr max-content;
+  gap: .5rem .25rem;
+
+  h3 { grid-area: name; }
+
+  dl.attribute {
+    display: contents;
+    font-size: var(--fs-700);
+
+    dt { display: none; }
+
+    .attribute-score-base {
+      position: relative;
+      grid-area: base;
+      place-self: center top;
+      text-align: center;
+      line-height: 1;
+      font-size: var(--fs-900);
+
+      &::before {
+        content: '';
+        display: block;
+
+        background: url("fbl-portrait.webp") center/contain no-repeat;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 1.75em;
+        aspect-ratio: 1;
+        z-index: -1;
+      }
+    }
+
+    .attribute-score-current {
+      grid-area: current;
+      justify-self: end;
+    }
+  }
+
+  dl.levels { grid-area: skills; }
+}
+
+#strength { grid-area: strength }
+#agility { grid-area: agility }
+#wits { grid-area: wits }
+#empathy { grid-area: empathy }
+
+#talents { grid-area: talents; }
+
+#consumables {
+  grid-area: consumables;
+
+  .food    { --icon: url("food.webp") }
+  .water   { --icon: url("water.webp") }
+  .arrows  { --icon: url("arrows.webp") }
+  .torches { --icon: url("torches.webp") }
+}
+
+#equipment {
+  grid-area: equipment;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#gear {
+  grid-area: gear;
+
+  h2 {
+    font-variant: small-caps;
+    align-self: start;
+    font-weight: 400;
+    font-size: var(--fs-400);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  li {
+    list-style-position: outside;
+    padding-left: 1ch;
+    margin-left: 2ch;
+
+    &[data-encumbrance='0']   { list-style-type: '-'; }
+    &[data-encumbrance='0.5'] { list-style-type: '▪︎'; }
+    &[data-encumbrance='1']   { list-style-type: '○'; }
+    &[data-encumbrance='2']   { list-style-type: '●'; }
+  }
+}
+
+#encumbrance {
+  grid-area: encumbrance;
+  justify-content: start;
+  font-size: var(--fs-600);
+
+  dt {
+    font-variant: small-caps;
+    align-self: start;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+#coins {
+  grid-area: coins;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, auto 1fr);
+  gap: 1ch;
+
+  font-size: var(--fs-600);
+
+  dt {
+    font-variant: small-caps;
+    align-self: start;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+
+    justify-self: end;
+  }
+
+  dd {
+    justify-self: start;
+  }
+}
+
+dialog {
+  opacity: 0;
+
+  position: relative;
+  margin: auto;
+
+  padding: 0 1em 1em;
+
+  border: 2px solid transparent;
+  border-image: url("box-border-large.webp") 110/11 repeat;
+  border-image-outset: 5px;
+
+  filter: drop-shadow(6px 6px 18px rgba(0,0,0,0.5));
+
+  transition: all 0.4s ease-out allow-discrete; /* all meaning opacity, overlay and display */
+
+  &::backdrop {
+    background-color: var(--clr-grey-200);
+    transition: all 0.4s allow-discrete;
+  }
+}
+
+dialog[open] {
+  opacity: 1;
+/*  outline: none;*/
+
+  &::backdrop {
+    opacity: 50%;
+  }
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+  }
+
+  dialog[open]::backdrop {
+    background-color: rgb(240 0 0 / 0%);
+  }
+}
+
+dialog:modal {
+  width: 50%;
+}
+
+.dialog-close {
+  float: right;
+
+  display: grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+
+  border: none;
+  background: none;
+
+  color: var(--clr-grey-400);
+
+  &::before {
+    content: "✕";
+    font-size: var(--fs-600);
+  }
+
+  &:hover {
+    color: var(--clr-red);
+  }
+}
+
+.rollable:has(.roll-btn) {
+  form { display: contents; }
+
+  position: relative;
+
+  &:hover {
+/*    cursor: pointer;*/
+    text-decoration: underline;
+    text-underline-offset: 20%;
+
+    .roll-btn { opacity: 1; }
+  }
+}
+
+.roll-btn {
+  display: inline-block;
+  opacity: 0;
+
+  position: absolute;
+  left: 0;
+  padding-right: .5em;
+  transform: translateX(-100%);
+
+  transition: opacity 0.3s ease-in;
+
+  height: 100%;
+  aspect-ratio: 1;
+
+  border: none;
+  background: url(rolling-dices.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  text-indent: -9999em;
+}

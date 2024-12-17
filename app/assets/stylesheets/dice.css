@@ -1,0 +1,42 @@
+
+.die {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+
+  height: var(--die-size, 2em);
+  width: var(--dic-size, 2em);
+
+  /* --dice-sprite-offset: attr("data-roll"); /* doesn't seem to work :( */
+
+  &::before {
+    content: "";
+    display: block;
+    height: var(--die-size, 2em);
+    width: var(--die-size, 2em);
+
+    position: absolute;
+    z-index: 2;
+
+    border: 1px solid currentcolor;
+    border-radius: 10%;
+
+    background-image: var(--dice-sprite);
+    background-position: calc(var(--dice-sprite-offset, 0) * 16.66667%); /* 100% / (7-1) sprites = 16.66667% */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-shadow: 0 0 6px rgba(0,0,0,0.5);
+  }
+
+  &[data-type="base"]  { --dice-sprite: url(dice-base.webp); }
+  &[data-type="skill"] { --dice-sprite: url(dice-skill.webp); }
+  &[data-type="gear"]  { --dice-sprite: url(dice-gear.webp); }
+
+  &[data-roll="6"] { --dice-sprite-offset: 6; }
+  &[data-roll="5"] { --dice-sprite-offset: 5; }
+  &[data-roll="4"] { --dice-sprite-offset: 4; }
+  &[data-roll="3"] { --dice-sprite-offset: 3; }
+  &[data-roll="2"] { --dice-sprite-offset: 2; }
+  &[data-roll="1"] { --dice-sprite-offset: 1; }
+}

@@ -1,0 +1,287 @@
+fr:
+  "yes": Oui
+  "no": Non
+  activemodel:
+    models:
+      kins/human: Humain
+      kins/elf: Elfe
+      kins/half_elf: Demi-Elfe
+      professions/druid: Druide
+      professions/fighter: Guerrier
+      professions/hunter: Chasseur
+      professions/minstrel: Ménestrel
+      professions/peddler: Colporteur
+      professions/rider: Cavalier
+      professions/rogue: Voleur
+      professions/sorcerer: Sorcier
+      equipment/battleaxe: Hache de guerre
+      equipment/broadsword: Épée large
+      equipment/chainmail: Cotte de mailles
+      equipment/closed_helmet: Spangenhelm
+      equipment/dagger: Dague
+      equipment/falchion: Fauchon
+      equipment/flail: Fauchon
+      equipment/great_helm: Grand heaume
+      equipment/halberd: Hallebarde
+      equipment/handaxe: Hachette
+      equipment/heavy_crossbow: Arbalète lourde
+      equipment/heavy_warhammer: Grand marteau de guerre
+      equipment/knife: Couteau
+      equipment/large_shield: Grand bouclier
+      equipment/large_wooden_club: Massue
+      equipment/leather_armor: Armure de cuir
+      equipment/light_crossbow: Arbalète légère
+      equipment/long_spear: Lance longue
+      equipment/longbow: Arc long
+      equipment/longsword: Épée bâtarde
+      equipment/mace: Masse d'armes
+      equipment/morningstar: Morgenstern
+      equipment/open_helmet: Cervelière
+      equipment/pike: Pique
+      equipment/plate_armor: Armure de plates
+      equipment/scimitar: Cimeterre
+      equipment/short_bow: Arc court
+      equipment/short_spear: Lance courte
+      equipment/shortsword: Épée courte
+      equipment/sling: Fronde
+      equipment/small_shield: Petit bouclier
+      equipment/staff: Bâton
+      equipment/studded_leather_armor: Armure de cuir clouté
+      equipment/studded_leather_armor: Armure de cuir clouté
+      equipment/studded_leather_cap: Casque en cuir clouté
+      equipment/throwing_axe: Francisque
+      equipment/throwing_knife: Couteau de lancer
+      equipment/throwing_spear: Javelot
+      equipment/trident: Trident
+      equipment/two_handed_axe: Hache à deux mains
+      equipment/two_handed_sword: Épée à deux mains
+      equipment/warhammer: Marteau de guerre
+      equipment/wooden_club: Gourdin
+      equipment/backpack: Sac à dos
+      equipment/bandages: Bandages
+      equipment/blanket: Couverture
+      equipment/cauldron: Chaudron
+      equipment/flint_and_steel: Briquet à silex
+      equipment/lockpicks: Outils de crochetage
+      equipment/lethal_poison: Poison mortel
+      equipment/lyre: Lyre
+      equipment/mask: Masque
+      equipment/quiver: Carquois
+      equipment/rope: Corde, 10 mètres
+      equipment/sleeping_fur: Couverture fourrée
+      equipment/small_tent: Petite tente
+      equipment/tankard: Chope
+      equipment/waterskin: Outre
+      weapon: Arme
+      armor: Armure
+      shield: Bouclier
+    attributes:
+      skill_set:
+        might: Vigueur
+        endurance: Endurance
+        melee: Mêlée
+        crafting: Artisanat
+        stealth: Furtivité
+        sleight_of_hand: Dextérité
+        move: Souplesse
+        marksmanship: Tir
+        scouting: Perception
+        lore: Érudition
+        survival: Survie
+        insight: Intuition
+        manipulation: Manipulation
+        performance: Représentation
+        healing: Soins
+        animal_handling: Dressage
+      talent_set:
+        adaptive: Adaptation
+        inner_peace: Paix intérieure
+        psychic_power: Énergie psychique
+        true_grit: Dur à cuire
+        hard_to_catch: Insaisissable
+        hunting_instincts: Instinct du prédateur
+        unbreakable: Inébranlable
+        noctural: Nocture
+        path_of_healing: Voie de la guérison
+        path_of_shifting_shapes: Voie de la métamorphose
+        path_of_sight: Voie de la clairvoyance
+        path_of_the_blade: Voie de l'épée
+        path_of_the_enemy: Voie de l'ennemi
+        path_of_the_shield: Voie du bouclier
+        path_of_the_arrow: Voie de la flèche
+        path_of_the_beast: Voie de la bête
+        path_of_the_forest: Voie de la forêt
+        path_of_the_hymn: Voie de l'hymne
+        path_of_the_song: Voie du chant
+        path_of_the_warcry: Voie du cri de guerre
+        path_of_treasure: Voie de l'or
+        path_of_words: Voie du mensonge
+        path_of_many_things: Voie de l'abondance
+        path_of_the_companion: Voie du compagnon
+        path_of_the_knight: Voie du chevalier
+        path_of_the_plains: Voie des plaines
+        path_of_the_face: Voie des masques
+        path_of_the_killer: Voie de l'assassin
+        path_of_poison: Voie du poison
+        path_of_blood: Voie du sang
+        path_of_death: Voie de la mort
+        path_of_signs: Voie des signes
+        path_of_stone: Voie de la pierre
+        ambidextrous: Ambidextre
+        axe_fighter: Maître des haches
+        berserker: Berserker
+        bowyer: Facteur d'arc
+        brawler: Pugilat
+        builder: Bâtisseur
+        chef: Cuisinier
+        cold_blooded: Impitoyable
+        defender: Défenseur
+        dragonslayer: Tueur de dragons
+        executioner: Bourreau
+        fast_footwork: Preste
+        fast_shooter: Tir rapide
+        fearless: Vaillance
+        firm_grip: Poigne ferme
+        fisher: Pêcheur
+        hammer_fighter: Maître des marteaux
+        herbalist: Herboriste
+        horseback_rider: Combat à cheval
+        incorruptible: Impassible
+        knife_fighter: Maître des couteaux
+        lightning_fast: Réflexes fulgurants
+        lockpicker: Crochetage
+        lucky: Chanceux
+        master_of_the_hunt: Chasseur
+        melee_charge: Charge percutante
+        pack_rat: Méthodique
+        pain_resistant: Résistance à la douleur
+        pathfinder: Pisteur
+        poisoner: Empoisoneur
+        quartermaster: Chef de camp
+        quickdraw: Prêt à dégainer
+        sailor: Marin
+        sharpshooter: Tireur d'élite
+        sharp_tongue: Langue de vipère
+        shield_fighter: Maître du bouclier
+        sixth_sense: Sixième sens
+        smith: Forgeron
+        spear_fighter: Maître lancier
+        steady_feet: Stabilité
+        sword_fighter: Maître épéiste
+        tailor: Tailleur
+        tanner: Tanneur
+        threatening: Intimidation
+        throwing_arm: Frondeur
+        wanderer: Explorateur
+      armor:
+        protection: Protection
+        body_part: Partie protégée
+        features: Traits
+      armor/features:
+        light: Léger
+      shield:
+        damage: Dégâts
+        range: Portée
+        features: Traits
+      weapon:
+        grip: Prise
+        bonus: Bonus
+        damage: Dégâts
+        range: Portée
+        features: Traits
+      weapon/features:
+        blunt: Contondant
+        edged: Tranchant
+        heavy: Lourd
+        hook: Crochet
+        light: Léger
+        parrying: Parade
+        pointed: Pointu
+        slow_loading: Rechargement (action lente)
+      weapon/grips:
+        :one_hand: 1M
+        :two_hands: 2M
+      weapon/ranges:
+        arm: Au contact
+        near: Proche
+        short: Courte
+        long: Longue
+        distant: Extrême
+      armor/body_parts:
+        body: Corps
+        head: Tête
+  activerecord:
+    models:
+      character: Personnage
+      skill_roll: Jet de compétence
+    attributes:
+      character:
+        kin: Peuple
+        profession: Profession
+        age: Âge
+        dark_secret: Terrible secret
+        appearance: Apparence
+        name: Nom
+        pride: Atout
+        portrait: Portrait
+        experience: Expérience
+        sleepless: Épuisé
+        thirsty: Assoiffé
+        hungry: Affamé
+        cold: Glacé
+        willpower: Volonté
+        strength: Force
+        agility: Agilité
+        wits: Esprit
+        empathy: Empathie
+        talents: Talents
+        food: Nourriture
+        water: Eau
+        arrows: Flèches
+        torches: Torches
+        equipment: Équipement
+        encumbrance: Encombrement
+        coins: Pièces de monnaie
+        injuries: Blessures
+        gear: Inventaire
+      character/age_bracket:
+        young: Jeune
+        adult: Adulte
+        old: Vieux
+      character/injury:
+        bleeding_thigh: Plaie à la cuisse
+        pierced_ear: Oreille coupée
+  characters:
+    character:
+      kin_and_profession: "%{kin}, %{profession}"
+    show:
+      add: Ajouter un point
+      remove: Retirer un point
+      age_and_years:
+        one: "%{bracket} (%{count} an)"
+        other: "%{bracket} (%{count} ans)"
+      background: Histoire
+      conditions: Conditions
+      portrait: Portrait
+      consumables: Provisions
+      gold: Or
+      silver: Argent
+      copper: Cuivre
+    trade_good:
+      quantity: "(%{n})"
+  skill_rolls:
+    skill_roll:
+      description: "Jet de compétence (%{skill})"
+      push: "Mettre le paquet"
+      successes:
+        "0": "0 succès"
+        one: "1 succès"
+        other: "%{count} succès"
+      banes:
+        "0": "0 écueil"
+        one: "1 écueil"
+        other: "%{count} écueils"
+  helpers:
+    submit:
+      skill_roll:
+        create: "Lancer les dés"

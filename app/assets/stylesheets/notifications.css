@@ -1,0 +1,68 @@
+/*
+/* Character-specific center * /
+.notification-center {
+  position: fixed;
+
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1em;
+  place-items: start center;
+
+  top: 15vh;
+  position-anchor: --character-sheet;
+  left: anchor(left);
+  right: anchor(right);
+  z-index: 3;
+}
+*/
+
+#notification-center {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 35%;
+
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1em;
+  place-items: start center;
+}
+
+.notification {
+  position: relative;
+
+  width: calc(100% - 14px); /* accounting for the border and border offset set */
+  padding: 25px 15px 15px; /* making room for the border and the header */
+
+  background: var(--clr-white);
+
+  border: 2px solid transparent;
+  border-image: url("box-border-large.webp") 110/11 repeat;
+  border-image-outset: 5px;
+
+  filter: drop-shadow(6px 6px 18px rgba(0,0,0,0.5));
+
+  > h2 {
+    font-weight: normal;
+  }
+
+  /* extra header on top */
+  &::before {
+    content: url(attack-border.webp);
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 0px;
+    left: 50%;
+
+    translate: -50% 0; /* centering pre-scaling */
+    scale: 0.25;
+
+    transform-origin: top center;
+    transform: translateY(-65%); /* moving up post-scaling */
+  }
+
+  .dialog-close {
+    margin-top: -25px; /* offsetting the extra padding for the header */
+  }
+}

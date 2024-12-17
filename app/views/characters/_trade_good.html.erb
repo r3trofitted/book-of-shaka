@@ -1,0 +1,6 @@
+<%= tag.li data: { encumbrance: trade_good.encumbrance } do %>
+  <%= t trade_good.model_name.human %>
+  <% if trade_good.respond_to?(:quantity) %>
+    <%= tag.small t(".quantity", n: trade_good.quantity) %>
+  <% end %>
+<% end %>

@@ -1,0 +1,13 @@
+<% attribute = character.send(name) %>
+
+<dl class="attribute">
+  <dt>Base</dt>
+  <dd class="attribute-score-base">
+    <%= attribute.base %>
+  </dd>
+  <dt>Current</dt>
+  <dd class="attribute-score-current">
+    <span class="sr-only"><%= attribute.current %></span>
+    <%= interactive_track character, name, :square %>
+  </dd>
+</dl>

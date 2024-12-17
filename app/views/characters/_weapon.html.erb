@@ -1,0 +1,8 @@
+<tr>
+  <td><%= weapon.model_name.human %></td>
+  <td><%= Weapon.human_attribute_name "grips.#{weapon.grip}" %></td>
+  <td><%= "%+d" % weapon.bonus %></td>
+  <td><%= weapon.damage %></td>
+  <td><%= Weapon.human_attribute_name "ranges.#{weapon.range}" %></td>
+  <td><%= weapon.features.map { Weapon.human_attribute_name("features.#{it}") }.join ", " %></td>
+</tr>

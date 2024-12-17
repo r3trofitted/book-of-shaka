@@ -1,0 +1,8 @@
+<tr>
+  <td><%= armor.model_name.human %></td>
+  <td><%= armor.rating %></td>
+  <td><%= Armor.human_attribute_name("body_parts.#{armor.body_part}") %></td>
+  <td class="na"></td>
+  <td class="na"></td>
+  <td><%= armor.features.map { Armor.human_attribute_name("features.#{it}") }.join ", " %></td>
+</tr>

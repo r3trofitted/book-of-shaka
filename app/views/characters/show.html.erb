@@ -1,0 +1,213 @@
+<% Character.all.excluding(@character).each { concat turbo_stream_from(it) } %>
+<% content_for :title, @character.name %>
+
+<article class="character-sheet">
+  <h1 id="name"><%= @character.name %></h1>
+  <section id="background">
+    <h2 class="sr-only"><%= t ".background" %></h2>
+    <dl>
+      <dt>
+        <%= Character.human_attribute_name :kin %>
+      </dt>
+      <dd>
+        <%= @character.kin.model_name.human %>
+      </dd>
+      <dt>
+        <%= Character.human_attribute_name :profession %>
+      </dt>
+      <dd>
+        <%= @character.profession.model_name.human %>
+      </dd>
+      <dt>
+        <%= Character.human_attribute_name :age %>
+      </dt>
+      <dd>
+        <%= t ".age_and_years", bracket: Character.human_attribute_name("age_bracket.#{@character.age_bracket}"),
+                                count: @character.age %>
+      </dd>
+      <dt>
+        <%= Character.human_attribute_name :pride %>
+      </dt>
+      <dd>
+        <%= @character.pride %>
+      </dd>
+      <dt>
+        <%= Character.human_attribute_name :dark_secret %>
+      </dt>
+      <dd class="long-text">
+        <%= @character.dark_secret %>
+      </dd>
+      <dt>
+        <%= Character.human_attribute_name :appearance %>
+      </dt>
+      <dd class="long-text">
+        <%= @character.appearance %>
+      </dd>
+      <dt>
+        <%= Character.human_attribute_name :reputation %>
+      </dt>
+      <%= tag.dd @character.reputation, class: "optional" %>
+      <dt><%= Character.human_attribute_name :experience %></dt>
+      <dd>
+        <span class="sr-only"><%= @character.experience %></span>
+        <%= interactive_track @character, :experience, max: 25, style: "--font-size: var(--fs-200);" %>
+      </dd>
+    </dl>
+  </section>
+
+  <section id="portrait">
+    <h2 class="sr-only"><%= Character.human_attribute_name :portrait %></h2>
+    <%= image_tag @character.portrait if @character.portrait.attached? %>
+  </section>
+
+  <section id="conditions">
+    <h2 class="sr-only"><%= t ".conditions" %></h2>
+    <dl class="inline illustrated">
+      <dt class="sleepless">
+        <%= Character.human_attribute_name :sleepless %>
+      </dt>
+      <%= tag.dd yes_or_no(@character.sleepless?), class: class_names(active: @character.sleepless?) %>
+      <dt class="thirsty">
+        <%= Character.human_attribute_name :thirsty %>
+      </dt>
+      <%= tag.dd yes_or_no(@character.thirsty?), class: class_names(active: @character.thirsty?) %>
+      <dt class="hungry">
+        <%= Character.human_attribute_name :hungry %>
+      </dt>
+      <%= tag.dd yes_or_no(@character.hungry?), class: class_names(active: @character.hungry?) %>
+      <dt class="cold">
+        <%= Character.human_attribute_name :cold %>
+      </dt>
+      <%= tag.dd yes_or_no(@character.cold?), class: class_names(active: @character.cold?) %>
+  </section>
+
+  <section id="injuries">
+    <h2><%= t Character.human_attribute_name :injuries %></h2>
+    <ul role="list">
+      <%= render collection: @character.injuries, partial: "injury" %>
+    </ul>
+  </section>
+
+  <dl id="willpower" class="tracker">
+    <dt><%= Character.human_attribute_name :willpower %></dt>
+    <dd>
+      <span class="sr-only"><%= @character.willpower %></span>
+      <%= interactive_track @character, :willpower, max: 10 %>
+    </dd>
+  </dl>
+
+  <section id="strength" class="attribute-with-skills">
+    <h3><%= Character.human_attribute_name :strength %></h3>
+    <%= render "attribute", character: @character, name: :strength %>
+    <dl class="levels">
+      <%= render @character.skills[:strength] %>
+    </dl>
+  </section>
+  <section id="agility" class="attribute-with-skills">
+    <h3><%= Character.human_attribute_name :agility %></h3>
+    <%= render "attribute", character: @character, name: :agility %>
+    <dl class="levels">
+      <%= render @character.skills[:agility] %>
+    </dl>
+
+  </section>
+  <section id="wits" class="attribute-with-skills">
+    <h3><%= Character.human_attribute_name :wits %></h3>
+    <%= render "attribute", character: @character, name: :wits %>
+    <dl class="levels">
+      <%= render @character.skills[:wits] %>
+    </dl>
+
+  </section>
+  <section id="empathy" class="attribute-with-skills">
+    <h3><%= Character.human_attribute_name :empathy %></h3>
+    <%= render "attribute", character: @character, name: :empathy %>
+    <dl class="levels">
+      <%= render @character.skills[:empathy] %>
+    </dl>
+  </section>
+
+  <section id="talents">
+    <h2><%= Character.human_attribute_name :talents %></h2>
+    <dl class="levels">
+      <%= render @character.talents %>
+    </dl>
+  </section>
+
+  <section id="consumables">
+    <h2 class="sr-only"><%= t ".consumables" %></h2>
+    <dl class="inline illustrated">
+      <dt class="food"><%= Character.human_attribute_name :food %></dt>
+      <dd class="optional"><%= @character.food %></dd>
+      <dt class="water"><%= Character.human_attribute_name :water %></dt>
+      <dd class="optional"><%= @character.water %></dd>
+      <dt class="arrows"><%= Character.human_attribute_name :arrows %></dt>
+      <dd class="optional"><%= @character.arrows %></dd>
+      <dt class="torches"><%= Character.human_attribute_name :torches %></dt>
+      <dd class="optional"><%= @character.torches %></dd>
+    </dl>
+  </section>
+
+  <section id="gear">
+    <h2><%= t Character.human_attribute_name :gear %></h2>
+    <ul role="list">
+      <%= render @character.gear.sort_by { [it.encumbrance, it.model_name.human] } %>
+    </ul>
+  </section>
+
+  <section id="equipment">
+    <h2 class="sr-only"><%= Character.human_attribute_name :equipment %></h2>
+
+    <table id="weapons">
+      <thead>
+        <tr>
+          <th><%= Weapon.model_name.human %></th>
+          <th><%= Weapon.human_attribute_name :grip %></th>
+          <th><%= Weapon.human_attribute_name :bonus %></th>
+          <th><%= Weapon.human_attribute_name :damage %></th>
+          <th><%= Weapon.human_attribute_name :range %></th>
+          <th><%= Weapon.human_attribute_name :features %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @character.weapons %>
+      </tbody>
+    </table>
+
+    <% if @character.armor.present? || @character.shield.present? %>
+      <table id="armor">
+        <thead>
+          <tr>
+            <th><%= Armor.model_name.human %></th>
+            <th><%= Armor.human_attribute_name :protection %></th>
+            <th><%= Armor.human_attribute_name :body_part %></th>
+            <th><%= Shield.human_attribute_name :bonus %></th>
+            <th><%= Shield.human_attribute_name :damage %></th>
+            <th><%= Armor.human_attribute_name :features %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @character.armor %>
+          <%= render @character.shield %>
+        </tbody>
+      </table>
+    <% end %>
+  </section>
+
+  <dl id="encumbrance" class="tracker">
+    <dt><%= Character.human_attribute_name :encumbrance %></dt>
+    <dd>
+      <span class="sr-only"><%= @character.encumbrance %></span>
+      <%= track @character.encumbrance, max: @character.max_encumbrance %>
+    </dd>
+  </dl>
+
+  <dl id="coins">
+    <dt><%= t ".gold" %></dt>
+    <dd class="optional"><%= @character.gold_coins if @character.gold_coins.positive? %></dd>
+    <dt><%= t ".silver" %></dt>
+    <dd class="optional"><%= @character.silver_coins if @character.silver_coins.positive? %></dd>
+    <dt><%= t ".copper" %></dt>
+    <dd class="optional"><%= @character.copper_coins if @character.copper_coins.positive? %></dd>
+  </dl>
+</article>

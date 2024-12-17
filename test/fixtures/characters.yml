@@ -1,0 +1,62 @@
+jorund:
+  name: Jorund Harradson
+  profession: fighter
+  kin: human
+  age: 55
+  pride: Je ne trahirai jamais mes amis
+  appearance: >
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+    Suspendisse urna nibh viverra non semper suscipit posuere a pede.
+  dark_secret: >
+    Las de vivre; cherche à retrouver et tuer son propre frère pour se venger,
+    ou à défaut, trouver la mort dans un combat glorieux.
+  reputation: 2
+  experience: 7
+  thirsty: true
+  injuries:
+    - bleeding_thigh
+    - pierced_ear
+  willpower: 8
+  strength: "5 (3)"
+  agility: "2"
+  wits: "3 (1)"
+  empathy: "3"
+  skills:
+    might: 3
+    endurance: 3
+    melee: 3
+    crafting: 1
+    move: 1
+    marksmanship: 1
+    scouting: 1
+    manipulation: 1
+  talents:
+    adaptive: 1
+    path_of_the_shield: 2
+    axe_fighter: 2
+    executioner: 2
+  food: 6
+  water: 8
+  arrows: ~
+  torches: 10
+  equipment:
+    - battleaxe
+    - knife
+    - short_bow
+    - leather_armor
+    - closed_helmet
+    - small_shield
+  coins:
+    silver: 5
+shaka:
+  name: Shaka
+  profession: sorcerer
+  kin: goblin
+  age: 33
+  pride: Tous ceux qui me menacent meurent dans d'atroces souffrances
+  dark_secret: Ne sait pas lire, et lance des sorts en fonction des image qui peuvent être sur le parchemin.
+  strength: "2"
+  agility: "5"
+  wits: "5"
+  empathy: "3"

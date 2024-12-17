@@ -1,0 +1,8 @@
+<tr>
+  <td><%= shield.model_name.human %></td>
+  <td class="na"></td>
+  <td class="na"></td>
+  <td><%= "%+d" % shield.bonus %></td>
+  <td class="optional"><%= shield.damage %></td>
+  <td><%= shield.features.map { Armor.human_attribute_name("features.#{it}") }.join ", " %></td>
+</tr>
