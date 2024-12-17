@@ -1,0 +1,5 @@
+<dt class="rollable">
+  <%= SkillSet.human_attribute_name skill.name %>
+  <%= link_to "roll", new_skill_roll_path(character_id: @character.id, skill: skill.name), class: "roll-btn", data: { turbo_frame: "modal" } %>
+</dt>
+<dd><%= skill.level %></dd>

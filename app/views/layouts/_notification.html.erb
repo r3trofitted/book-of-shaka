@@ -1,0 +1,14 @@
+<%# TODO: use the Popover API (https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) with anchor positioning %>
+<div class="notification" data-notification-center-target="notification" data-controller="notification" data-notification-subject="<%= content_for(:subject) %>">
+  <button class="dialog-close" data-action="notification#close">
+    <span class="sr-only">Close</span>
+  </button>
+
+  <% if content_for? :heading %>
+    <h2 class="heading">
+      <%= content_for :heading %>
+    </h2>
+  <% end %>
+
+  <%= yield %>
+</div>

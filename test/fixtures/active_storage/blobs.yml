@@ -1,0 +1,1 @@
+jorund_portrait_blob: <%= ActiveStorage::FixtureSet.blob filename: "jorund.jpeg", service_name: "fixtures" %>

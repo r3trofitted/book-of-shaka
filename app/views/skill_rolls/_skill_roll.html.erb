@@ -1,0 +1,31 @@
+<article class="skill-roll">
+  <header class="heading">
+    <h2><%= SkillRoll.model_name.human %></h2>
+    <p><%= SkillSet.human_attribute_name(@skill_roll.skill) %></p>
+  </header>
+
+  <dl id="first-roll">
+    <% if skill_roll.first_roll.present? %>
+      <dt>Jet initial :</dt>
+      <dd>
+        <ol role="list">
+          <%= render sorted_dice_pool(skill_roll.first_roll.dice_pool), layout: "li" %>
+        </ol>
+      </dd>
+    <% end %>
+  </dl>
+
+  <ol class="dice-pool" role="list">
+    <div>
+      <%= render sorted_dice_pool(skill_roll.dice_pool) %>
+    </div>
+  </ol>
+
+  <p class="results">
+    <%= [t(".successes", count: skill_roll.successes), t(".banes", count: skill_roll.banes)].to_sentence locale: I18n.locale %>
+  </p>
+
+  <div class="controls">
+    <%= button_to(t(".push"), [:push, skill_roll]) if skill_roll.pushable? %>
+  </div>
+</article>

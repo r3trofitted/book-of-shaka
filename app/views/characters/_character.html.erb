@@ -1,0 +1,14 @@
+<%= link_to character, style: "display: contents;" do %>
+  <article class="character-short parchment-bordered">
+    <header>
+      <h2><%= character.name %></h2>
+      <p class="heading ">
+        <%= t ".kin_and_profession", kin: character.kin.model_name.human, profession: character.profession.model_name.human %>
+      </p>
+    </header>
+    <%= image_tag character.portrait.variant(:thumb), class: "portrait" if character.portrait.attached? %>
+    <blockquote>
+      <%= character.pride %>
+    </blockquote>
+  </article>
+<% end %>

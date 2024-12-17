@@ -1,0 +1,7 @@
+jorund_melee_success:
+  character: jorund
+  subject: melee
+  dice_pool:
+    base: [6, 3, 1]
+    skill: [4, 2]
+    gear: [6]

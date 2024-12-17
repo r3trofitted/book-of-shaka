@@ -1,0 +1,236 @@
+.skill-roll {
+  display: grid;
+  grid-template-columns: auto repeat(9, 1fr);
+  grid-auto-flow: row;
+  gap: 1em .5em;
+
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+.heading {
+  text-align: center;
+  font-size: var(--fs-600);
+
+  h2 {
+    font-weight: normal;
+    font-size: var(--fs-200);
+  }
+}
+
+.dice-pool {
+  --die-size: 3em;
+
+  container-type: inline-size;
+  margin-inline: 10%;
+
+  > div {
+    --col-size: calc(var(--die-size)/2);
+
+    display: grid;
+    gap: calc(var(--die-size) / 3);
+    grid-template-columns: repeat(auto-fit, minmax(var(--die-size), 1fr));
+    place-content: center;
+    place-items: center;
+
+    font-size: var(--fs-400);
+
+    /*
+    The following container queries would allow the centering of the last row of
+    dice, if custom properties could be used in container queries.
+    Because we cannot do with hardcoded values, since the die size needs to be
+    adjustable, they don't work yet. But I'm keeping then in the hope that one
+    day, they will.
+
+    (See <TODO: link to Kevin Powell's video>)
+    */
+
+    /* 2 dice per row – switching to 2 columns per die */
+    @container (width >= calc(var(--col-size) * 2 + 1em)) {
+      grid-template-columns: repeat(auto-fit, minmax(var(--col-size), 1fr));
+      .die { grid-column: span 2; }
+    }
+
+    /* 3 dice per row */
+    @container (calc(var(--col-size) * 4 + 3em) < width < calc(var(--col-size) * 6 + 5em)) {
+      .die:last-child:nth-child(odd) {
+        grid-column: 2 / span 2;
+      }
+    }
+
+    /* 4 dice per row */
+    @container (calc(var(--col-size) * 6 + 5em) < width < calc(var(--col-size) * 8 + 7em)) {
+      .die:nth-child(3n + 4):last-child {
+        grid-column: 3 / span 2;
+      }
+
+      .die:nth-child(3n + 4):nth-last-child(2) {
+        grid-column: 2 / span 2;
+      }
+    }
+
+    /* 5 dice per row */
+    @container (calc(var(--col-size) * 8 + 7em) < width < calc(var(--col-size) * 10 + 9em)) {
+      .die:nth-child(4n + 5):last-child {
+        grid-column: 4 / span 2;
+      }
+
+      .die:nth-child(4n + 5):nth-last-child(2) {
+        grid-column: 3 / span 2;
+      }
+
+      .die:nth-child(4n + 5):nth-last-child(3) {
+        grid-column: 2 / span 2;
+      }
+    }
+  }
+
+  li { list-style-type: none; }
+}
+
+#first-roll {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  filter: opacity(50%);
+
+  ol {
+    --die-size: 1.5em;
+
+    display: flex;
+
+    .die::before {
+      box-shadow: none;
+    }
+  }
+}
+
+.results {
+  text-align: center;
+}
+
+.dice-picker {
+  /* Chrome: subgrids on `<fieldset>` don't work well, so we wrap them in a `<div>` a put the subgrid on it */
+  > fieldset { display: contents; }
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-auto-flow: column;
+  place-items: center;
+
+  &.base-dice {
+    --dice-sprite: url(dice-base.webp);
+    --text-color: var(--clr-black);
+    --bg-color: var(--clr-white);
+  }
+
+  &.skill-dice {
+    --dice-sprite: url(dice-skill.webp);
+    --text-color: var(--clr-white);
+    --bg-color: var(--clr-red);
+  }
+
+  &.gear-dice {
+    --dice-sprite: url(dice-gear.webp);
+    --text-color: var(--clr-white);
+    --bg-color: var(--clr-black);
+  }
+
+  --die-size: 2.25em;
+
+  /* TODO: use a border image instead of a background image on a generated content */
+  legend {
+    display: contents;
+
+    > span {
+      color: var(--text-color);
+      grid-column: 1;
+      position: relative;
+      padding-inline: 3ch;
+      line-height: 2.1;
+      height: 100%;
+      background-color: var(--bg-color);
+
+      /* TODO: have ribbon for each die type */
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        height: 55px;
+        width: 100%;
+        background-image: url(small-ribbon.webp);
+        background-size: 100% auto;
+        background-position: left center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  label {
+    color: var(--clr-grey-400);
+
+    /* TODO: make a11y-compatible */
+    > input { display: none; }
+
+    &.bonus span::before { content: "●"; }
+
+    &:first-of-type {
+      font-weight: bold;
+      justify-self: end;
+
+      /* Don't show the die (if any) */
+      &.die::before { content: none; };
+
+      /* Don't show at all if checked */
+      &:has(> input:checked) {
+        visibility: hidden;
+      }
+    }
+  }
+
+  /* Past a checked radio, the die on the other radio buttons, if any, is not displayed */
+  label:has(input:checked) ~ label.die {
+    &::before { content: none; }
+  }
+}
+
+.controls {
+  place-self: center;
+
+  input[type=submit], button {
+    font-family: var(--ff-title);
+    font-size: var(--fs-500);
+    font-variant: small-caps;
+    margin-block: .25em;
+    text-wrap: balance;
+    border: 0;
+
+    background: transparent;
+  }
+}
+
+/* Variant for notifications */
+.skill-roll-notification {
+  h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: var(--fs-200);
+    margin-block-end: 1em;
+  }
+
+  /* overriding the default (modal) style */
+  .dice-pool {
+    --die-size: 2em;
+    margin-inline: 5%;
+    margin-block: .5em;
+  }
+
+  .die::before {
+    box-shadow: none;
+  }
+}

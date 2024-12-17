@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    models:
+      character: Character
+    attributes:
+      character:
+        pride: Pride
