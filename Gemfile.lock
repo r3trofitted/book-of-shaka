@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 94729d03621414f8000648b3b786b542d584662c
+  revision: d3f471f11285611676d739449b2b2f093487340c
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -208,6 +208,7 @@ GEM
     net-sftp (4.0.0)
       net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.5.0)
+      net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.4)
     nokogiri (1.18.1)
@@ -230,7 +231,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.2.2)
+    psych (5.2.3)
       date
       stringio
     public_suffix (6.0.1)
@@ -263,7 +264,7 @@ GEM
       ffi (~> 1.0)
     rbs (3.8.1)
       logger
-    rdoc (6.10.0)
+    rdoc (6.11.0)
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
     reline (0.6.0)
