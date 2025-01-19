@@ -1,7 +1,288 @@
 en:
+  "yes": "Yes"
+  "no": "No"
+  activemodel:
+    models:
+      kins/human: Human
+      kins/elf: Elf
+      kins/half_elf: Half-Elf
+      professions/druid: Druid
+      professions/fighter: Fightee
+      professions/hunter: Hunter
+      professions/minstrel: Minstrel
+      professions/peddler: Peddler
+      professions/rider: Rider
+      professions/rogue: Rogue
+      professions/sorcerer: Sorcerer
+      equipment/battleaxe: Battleaxe
+      equipment/broadsword: Broadsword
+      equipment/chainmail: Chainmail
+      equipment/closed_helmet: Closed helmet
+      equipment/dagger: Dagger
+      equipment/falchion: Falchion
+      equipment/flail: Flail
+      equipment/great_helm: Great helm
+      equipment/halberd: Halberd
+      equipment/handaxe: Handaxe
+      equipment/heavy_crossbow: Heavy crossbow
+      equipment/heavy_warhammer: Heavt warhammer
+      equipment/knife: Knife
+      equipment/large_shield: Large shield
+      equipment/large_wooden_club: Large wooder club
+      equipment/leather_armor: Leather armor
+      equipment/light_crossbow: Light crossbow
+      equipment/long_spear: Long spear
+      equipment/longbow: Longbow
+      equipment/longsword: Longsword
+      equipment/mace: Mace
+      equipment/morningstar: Morningstar
+      equipment/open_helmet: Open helmet
+      equipment/pike: Pike
+      equipment/plate_armor: Plate armor
+      equipment/scimitar: Scimitar
+      equipment/short_bow: Short bow
+      equipment/short_spear: Short spear
+      equipment/shortsword: Shortsword
+      equipment/sling: Sling
+      equipment/small_shield: Small shield
+      equipment/staff: Staff
+      equipment/studded_leather_armor: Studded leather armor
+      equipment/studded_leather_cap: Studded leather cap
+      equipment/throwing_axe: Throwing axe
+      equipment/throwing_knife: Throwing knife
+      equipment/throwing_spear: Throwing spear
+      equipment/trident: Trident
+      equipment/two_handed_axe: Two-handed axe
+      equipment/two_handed_sword: Two-handed sword
+      equipment/warhammer: Warhammer
+      equipment/wooden_club: Wooden club
+      equipment/backpack: Backpack
+      equipment/bandages: Bandages
+      equipment/blanket: Blanket
+      equipment/cauldron: Cauldron
+      equipment/flint_and_steel: Flint and steel
+      equipment/lockpicks: Lockpicks
+      equipment/lethal_poison: Lethal poison
+      equipment/lyre: Lyre
+      equipment/mask: Mask
+      equipment/quiver: Quiver
+      equipment/rope: Rope, 10 meters
+      equipment/sleeping_fur: Sleeping fur
+      equipment/small_tent: Small tent
+      equipment/tankard: Tankard
+      equipment/waterskin: Waterskin
+      weapon: Weapon
+      armor: Armor
+      shield: Shield
+    attributes:
+      skill_set:
+        might: Might
+        endurance: Endurance
+        melee: Melee
+        crafting: Crafting
+        stealth: Stealth
+        sleight_of_hand: Sleight-of-hand
+        move: Move
+        marksmanship: Marksmanship
+        scouting: Scouting
+        lore: Lore
+        survival: Survival
+        insight: Insight
+        manipulation: Manipulation
+        performance: Performance
+        healing: Healing
+        animal_handling: Animal handling
+      talent_set:
+        adaptive: Adaptative
+        inner_peace: Inner peace
+        psychic_power: Psychic power
+        true_grit: True grit
+        hard_to_catch: Hard to catch
+        hunting_instincts: Hunting instincts
+        unbreakable: Unbreakable
+        noctural: Noctural
+        path_of_healing: Path of healing
+        path_of_shifting_shapes: Path of shifting shapes
+        path_of_sight: Path of sight
+        path_of_the_blade: Path of the blade
+        path_of_the_enemy: Path of the enemy
+        path_of_the_shield: Path of the shield
+        path_of_the_arrow: Path of the arrow
+        path_of_the_beast: Path of the beast
+        path_of_the_forest: Path of the forest
+        path_of_the_hymn: Path of the hymn
+        path_of_the_song: Path of the song
+        path_of_the_warcry: Path of the warcry
+        path_of_treasure: Path of treasure
+        path_of_words: Path of words
+        path_of_many_things: Path of many things
+        path_of_the_companion: Path of the companion
+        path_of_the_knight: Path of the knight
+        path_of_the_plains: Path of the plains
+        path_of_the_face: Path of the face
+        path_of_the_killer: Path of the killer
+        path_of_poison: Path of poison
+        path_of_blood: Path of blood
+        path_of_death: Path of death
+        path_of_signs: Path of signs
+        path_of_stone: Path of stone
+        ambidextrous: Ambidextrous
+        axe_fighter: Axe fighter
+        berserker: Berserker
+        bowyer: Bowyer
+        brawler: Brawler
+        builder: Builder
+        chef: Chef
+        cold_blooded: Cold-blooded
+        defender: Defender
+        dragonslayer: Dragonslayer
+        executioner: Executioner
+        fast_footwork: Fast footwork
+        fast_shooter: Fast shooter
+        fearless: Fearless
+        firm_grip: Firm grip
+        fisher: Fisher
+        hammer_fighter: Hammer fighter
+        herbalist: Herbalist
+        horseback_rider: Horseback rider
+        incorruptible: Incorruptible
+        knife_fighter: Knife fighter
+        lightning_fast: Lightning fast
+        lockpicker: Lockpicker
+        lucky: Lucky
+        master_of_the_hunt: Master of the hunt
+        melee_charge: Melee charge
+        pack_rat: Pack rat
+        pain_resistant: Pain resistant
+        pathfinder: Pathfinder
+        poisoner: Poisoner
+        quartermaster: Quartermaster
+        quickdraw: Quickdraw
+        sailor: Sailor
+        sharpshooter: Sharpshooter
+        sharp_tongue: Sharp tongue
+        shield_fighter: Shield fighter
+        sixth_sense: Sixth sense
+        smith: Smith
+        spear_fighter: Spear fighter
+        steady_feet: Steady feet
+        sword_fighter: Sword fighter
+        tailor: Tailor
+        tanner: Tanner
+        threatening: Threatening
+        throwing_arm: Throwing arm
+        wanderer: Wanderer
+      armor:
+        protection: Protection
+        body_part: Body part
+        features: Features
+      armor/features:
+        light: Light
+      shield:
+        damage: Damage
+        range: Range
+        features: Features
+      weapon:
+        grip: Grip
+        bonus: Bonus
+        damage: Damage
+        range: Range
+        features: Features
+      weapon/features:
+        blunt: Blunt
+        edged: Edged
+        heavy: Heavy
+        hook: Hook
+        light: Light
+        parrying: Parrying
+        pointed: Pointed
+        slow_loading: Loading (slow action)
+      weapon/grips:
+        :one_hand: 1H
+        :two_hands: 2H
+      weapon/ranges:
+        arm: Arm
+        near: Near
+        short: Short
+        long: Long
+        distant: Distant
+      armor/body_parts:
+        body: Body
+        head: Head
   activerecord:
     models:
       character: Character
+      skill_roll: Skill roll
     attributes:
       character:
+        kin: Kin
+        profession: Profession
+        age: Age
+        dark_secret: Dark secret
+        appearance: Appearance
+        name: Name
         pride: Pride
+        portrait: Portrait
+        experience: Experience
+        sleepless: Sleepless
+        thirsty: Thirsty
+        hungry: Hungy
+        cold: Cold
+        willpower: Willpower
+        strength: Strength
+        agility: Agility
+        wits: Wits
+        empathy: Empathy
+        talents: Talents
+        food: Food
+        water: Water
+        arrows: Arrows
+        torches: Torches
+        equipment: Equipement
+        encumbrance: Encumbrance
+        coins: Coins
+        injuries: Injuries
+        gear: Gear
+      character/age_bracket:
+        young: Young
+        adult: Adult
+        old: Old
+      character/injury:
+        bleeding_thigh: Bleeding thigh
+        pierced_ear: Pierced ear
+  characters:
+    character:
+      kin_and_profession: "%{kin}, %{profession}"
+    show:
+      add: Add a point
+      remove: Remove a point
+      add_condition_html: Add the <i>%{condition}</i> condition
+      remove_condition_html: Remove the <i>%{condition}</i> condition
+      age_and_years:
+        one: "%{bracket} (%{count} years old)"
+        other: "%{bracket} (%{count} years old)"
+      background: Background
+      conditions: Conditions
+      portrait: Portrait
+      consumables: Consumables
+      gold: Gold
+      silver: Silver
+      copper: Cooper
+    trade_good:
+      quantity: "(%{n})"
+  skill_rolls:
+    skill_roll:
+      description: "Skill roll (%{skill})"
+      push: "Push"
+      successes:
+        "0": "0 successes"
+        one: "1 success"
+        other: "%{count} successes"
+      banes:
+        "0": "0 banes"
+        one: "1 bane"
+        other: "%{count} banes"
+  helpers:
+    submit:
+      skill_roll:
+        create: "Roll the dice"

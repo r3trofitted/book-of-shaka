@@ -47,7 +47,6 @@ fr:
       equipment/small_shield: Petit bouclier
       equipment/staff: Bâton
       equipment/studded_leather_armor: Armure de cuir clouté
-      equipment/studded_leather_armor: Armure de cuir clouté
       equipment/studded_leather_cap: Casque en cuir clouté
       equipment/throwing_axe: Francisque
       equipment/throwing_knife: Couteau de lancer
@@ -257,6 +256,8 @@ fr:
     show:
       add: Ajouter un point
       remove: Retirer un point
+      add_condition_html: Ajouter l'état <i>%{condition}</i>
+      remove_condition_html: Retirer l'état <i>%{condition}</i>
       age_and_years:
         one: "%{bracket} (%{count} an)"
         other: "%{bracket} (%{count} ans)"
