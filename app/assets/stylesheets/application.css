@@ -312,11 +312,8 @@ table {
 
 dl.inline {
   display: grid;
-  grid-auto-columns: 1fr;
-  justify-items: center;
-
-  dt { grid-row: 1; }
-  dd { grid-row: 2; }
+  grid-auto-flow: column;
+  justify-content: space-between;
 }
 
 dl.tracker {
@@ -334,26 +331,31 @@ dl.tracker {
   }
 }
 
-dl.illustrated {
-  dt {
-    position: relative;
+div.illustrated-status {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1.25lh 1.25lh;
+  column-gap: .5ch;
+  grid-template-areas:
+    "illustration label"
+    "illustration value";
 
-    &::before {
-      grid-area: illustration;
+  dt               { grid-area: label }
+  dd:first-of-type { align-self: start; }
+  dd:has(img)      { grid-area: illustration }
 
-      content: var(--icon);
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      transform-origin: top left;
-      scale: .225;                  /* roughly 50x53, from the original size of 220x235 */
-      transform: translateX(-110%); /* shift to the left, plus an extra margin */
-    }
+  form { display: content; }
 
-    &:has(+ dd.active) {
-      &::before { filter: drop-shadow(0 0 1rem color(display-p3 0.135 0.134 0.125)); }
-    }
+  button {
+    background: var(--clr-white);
+    border: none;
+    padding: 0;
+    aspect-ratio: 1;
+    height: 5lh;
+  }
+
+  &.active img {
+    filter: drop-shadow(0 0 1rem color(display-p3 0.135 0.134 0.125));
   }
 }
 
@@ -395,14 +397,7 @@ dl.illustrated {
   }
 }
 
-#conditions {
-  grid-area: conditions;
-
-  dt.sleepless { --icon: url("sleepless.webp") }
-  dt.thirsty   { --icon: url("thirsty.webp") }
-  dt.hungry    { --icon: url("hungry.webp") }
-  dt.cold      { --icon: url("cold.webp") }
-}
+#conditions { grid-area: conditions; }
 
 #injuries {
   grid-area: injuries;

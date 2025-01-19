@@ -62,23 +62,35 @@
 
   <section id="conditions">
     <h2 class="sr-only"><%= t ".conditions" %></h2>
-    <dl class="inline illustrated">
-      <dt class="sleepless">
-        <%= Character.human_attribute_name :sleepless %>
-      </dt>
-      <%= tag.dd yes_or_no(@character.sleepless?), class: class_names(active: @character.sleepless?) %>
-      <dt class="thirsty">
-        <%= Character.human_attribute_name :thirsty %>
-      </dt>
-      <%= tag.dd yes_or_no(@character.thirsty?), class: class_names(active: @character.thirsty?) %>
-      <dt class="hungry">
-        <%= Character.human_attribute_name :hungry %>
-      </dt>
-      <%= tag.dd yes_or_no(@character.hungry?), class: class_names(active: @character.hungry?) %>
-      <dt class="cold">
-        <%= Character.human_attribute_name :cold %>
-      </dt>
-      <%= tag.dd yes_or_no(@character.cold?), class: class_names(active: @character.cold?) %>
+    <dl class="inline">
+      <%= tag.div class: class_names("illustrated-status", active: @character.sleepless?) do %>
+        <dt class="sleepless">
+          <%= Character.human_attribute_name :sleepless %>
+        </dt>
+        <%= tag.dd yes_or_no(@character.sleepless?) %>
+        <%= tag.dd button_to(image_tag("sleepless.webp")) %>
+      <% end %>
+      <%= tag.div class: class_names("illustrated-status", active: @character.thirsty?) do %>
+        <dt class="thirsty">
+          <%= Character.human_attribute_name :thirsty %>
+        </dt>
+        <%= tag.dd yes_or_no(@character.thirsty?), class: class_names(active: @character.thirsty?) %>
+        <%= tag.dd button_to(image_tag("thirsty.webp")) %>
+      <% end %>
+      <%= tag.div class: class_names("illustrated-status", active: @character.hungry?) do %>
+        <dt class="hungry">
+          <%= Character.human_attribute_name :hungry %>
+        </dt>
+        <%= tag.dd yes_or_no(@character.hungry?), class: class_names(active: @character.hungry?) %>
+        <%= tag.dd button_to(image_tag("hungry.webp")) %>
+      <% end %>
+      <%= tag.div class: class_names("illustrated-status", active: @character.cold?) do %>
+        <dt class="cold">
+          <%= Character.human_attribute_name :cold %>
+        </dt>
+        <%= tag.dd yes_or_no(@character.cold?) %>
+        <%= tag.dd button_to(image_tag("cold.webp")) %>
+      <% end %>
   </section>
 
   <section id="injuries">
@@ -136,15 +148,27 @@
 
   <section id="consumables">
     <h2 class="sr-only"><%= t ".consumables" %></h2>
-    <dl class="inline illustrated">
-      <dt class="food"><%= Character.human_attribute_name :food %></dt>
-      <dd class="optional"><%= @character.food %></dd>
-      <dt class="water"><%= Character.human_attribute_name :water %></dt>
-      <dd class="optional"><%= @character.water %></dd>
-      <dt class="arrows"><%= Character.human_attribute_name :arrows %></dt>
-      <dd class="optional"><%= @character.arrows %></dd>
-      <dt class="torches"><%= Character.human_attribute_name :torches %></dt>
-      <dd class="optional"><%= @character.torches %></dd>
+    <dl class="inline">
+      <%= tag.div class: class_names("illustrated-status") do %>
+        <dt><%= Character.human_attribute_name :food %></dt>
+        <dd class="optional"><%= @character.food %></dd>
+        <%= tag.dd button_to(image_tag("food.webp")) %>
+      <% end %>
+      <%= tag.div class: class_names("illustrated-status") do %>
+        <dt><%= Character.human_attribute_name :water %></dt>
+        <dd class="optional"><%= @character.water %></dd>
+        <%= tag.dd button_to(image_tag("water.webp")) %>
+      <% end %>
+      <%= tag.div class: class_names("illustrated-status") do %>
+        <dt><%= Character.human_attribute_name :arrows %></dt>
+        <dd class="optional"><%= @character.arrows %></dd>
+        <%= tag.dd button_to(image_tag("arrows.webp")) %>
+      <% end %>
+      <%= tag.div class: class_names("illustrated-status") do %>
+        <dt><%= Character.human_attribute_name :torches %></dt>
+        <dd class="optional"><%= @character.torches %></dd>
+        <%= tag.dd button_to(image_tag("torches.webp")) %>
+      <% end %>
     </dl>
   </section>
 
