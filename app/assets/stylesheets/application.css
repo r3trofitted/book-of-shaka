@@ -514,21 +514,12 @@ dl.levels {
   dl.levels { grid-area: skills; }
 }
 
-#strength { grid-area: strength }
-#agility { grid-area: agility }
-#wits { grid-area: wits }
-#empathy { grid-area: empathy }
-
-#talents { grid-area: talents; }
-
-#consumables {
-  grid-area: consumables;
-
-  .food    { --icon: url("food.webp") }
-  .water   { --icon: url("water.webp") }
-  .arrows  { --icon: url("arrows.webp") }
-  .torches { --icon: url("torches.webp") }
-}
+#strength    { grid-area: strength }
+#agility     { grid-area: agility }
+#wits        { grid-area: wits }
+#empathy     { grid-area: empathy }
+#talents     { grid-area: talents; }
+#consumables { grid-area: consumables; }
 
 #equipment {
   grid-area: equipment;
