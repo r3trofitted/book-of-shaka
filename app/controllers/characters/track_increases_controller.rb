@@ -1,5 +1,5 @@
 class Characters::TrackIncreasesController < ApplicationController
-  before_action :set_character
+  include CharacterScoped
 
   def create
     @character
@@ -7,11 +7,5 @@ class Characters::TrackIncreasesController < ApplicationController
       .save
 
     redirect_to @character
-  end
-
-  private
-
-  def set_character
-    @character = Character.find params[:character_id]
   end
 end
