@@ -68,28 +68,59 @@
           <%= Character.human_attribute_name :sleepless %>
         </dt>
         <%= tag.dd yes_or_no(@character.sleepless?) %>
-        <%= tag.dd button_to(image_tag("sleepless.webp")) %>
+        <dd>
+          <%= button_to do %>
+            <span class="sr-only">
+              <%= t (@character.sleepless? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:sleepless) %>
+            </span>
+            <%= image_tag "sleepless.webp" %>
+          <% end %>
+        </dd>
       <% end %>
+
       <%= tag.div class: class_names("illustrated-status", active: @character.thirsty?) do %>
         <dt class="thirsty">
           <%= Character.human_attribute_name :thirsty %>
         </dt>
         <%= tag.dd yes_or_no(@character.thirsty?), class: class_names(active: @character.thirsty?) %>
-        <%= tag.dd button_to(image_tag("thirsty.webp")) %>
+        <dd>
+          <%= button_to do %>
+            <span class="sr-only">
+              <%= t (@character.thirsty? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:thirsty) %>
+            </span>
+            <%= image_tag "thirsty.webp" %>
+          <% end %>
+        </dd>
       <% end %>
+
       <%= tag.div class: class_names("illustrated-status", active: @character.hungry?) do %>
         <dt class="hungry">
           <%= Character.human_attribute_name :hungry %>
         </dt>
         <%= tag.dd yes_or_no(@character.hungry?), class: class_names(active: @character.hungry?) %>
-        <%= tag.dd button_to(image_tag("hungry.webp")) %>
+        <dd>
+          <%= button_to do %>
+            <span class="sr-only">
+              <%= t (@character.hungry? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:hungry) %>
+            </span>
+            <%= image_tag "hungry.webp" %>
+          <% end %>
+        </dd>
       <% end %>
+
       <%= tag.div class: class_names("illustrated-status", active: @character.cold?) do %>
         <dt class="cold">
           <%= Character.human_attribute_name :cold %>
         </dt>
         <%= tag.dd yes_or_no(@character.cold?) %>
-        <%= tag.dd button_to(image_tag("cold.webp")) %>
+        <dd>
+          <%= button_to do %>
+            <span class="sr-only">
+              <%= t (@character.cold? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:cold) %>
+            </span>
+            <%= image_tag "cold.webp" %>
+          <% end %>
+        </dd>
       <% end %>
   </section>
 
