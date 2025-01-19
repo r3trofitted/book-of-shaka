@@ -69,7 +69,7 @@
         </dt>
         <%= tag.dd yes_or_no(@character.sleepless?) %>
         <dd>
-          <%= button_to do %>
+          <%= button_to character_toggle_condition_path(@character, :sleepless) do %>
             <span class="sr-only">
               <%= t (@character.sleepless? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:sleepless) %>
             </span>
@@ -84,7 +84,7 @@
         </dt>
         <%= tag.dd yes_or_no(@character.thirsty?), class: class_names(active: @character.thirsty?) %>
         <dd>
-          <%= button_to do %>
+          <%= button_to character_toggle_condition_path(@character, :thirsty) do %>
             <span class="sr-only">
               <%= t (@character.thirsty? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:thirsty) %>
             </span>
@@ -99,7 +99,7 @@
         </dt>
         <%= tag.dd yes_or_no(@character.hungry?), class: class_names(active: @character.hungry?) %>
         <dd>
-          <%= button_to do %>
+          <%= button_to character_toggle_condition_path(@character, :hungry) do %>
             <span class="sr-only">
               <%= t (@character.hungry? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:hungry) %>
             </span>
@@ -114,7 +114,7 @@
         </dt>
         <%= tag.dd yes_or_no(@character.cold?) %>
         <dd>
-          <%= button_to do %>
+          <%= button_to character_toggle_condition_path(@character, :cold) do %>
             <span class="sr-only">
               <%= t (@character.cold? ? ".remove_condition_html" : ".add_condition_html"), condition: Character.human_attribute_name(:cold) %>
             </span>

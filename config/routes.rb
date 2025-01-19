@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     with_options module: "characters", only: :create do
       resources :track_increases
       resources :track_decreases
+
+      post "conditions/:condition/toggle", to: "characters/conditions#toggle", as: "toggle_condition"
     end
   end
 
